@@ -60,7 +60,7 @@ Version=9
 #Region  Project Attributes 
 	#ApplicationLabel: Jibres
 	#VersionCode: 1
-	#VersionName: 
+	#VersionName: 1
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: unspecified
 	#CanInstallToExternalStorage: False
