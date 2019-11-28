@@ -31,6 +31,6 @@ ModuleClosedNodes6=
 ModuleClosedNodes7=
 ModuleClosedNodes8=
 ModuleClosedNodes9=
-NavigationStack=Home,Activity_Create,84,5,creatLV,Class_Globals,0,0,creatLV,Initialize,8,0,creatLV,LV_news_onCreateViewHolder,25,0,Home,cat_create,503,0,Home,maindata_onNext,309,6,Home,Activity_Pause,424,6,Home,t_shegeft_Tick,417,0,Home,shegeft_creat,371,6,Home,Globals,23,1
+NavigationStack=creatLV,Initialize,8,0,creatLV,LV_news_onCreateViewHolder,25,0,Home,cat_create,503,0,Home,maindata_onNext,309,6,Home,Activity_Pause,424,6,Home,t_shegeft_Tick,417,0,Home,shegeft_creat,371,6,Home,Globals,23,1,Main,Process_Globals,15,0,Home,Process_Globals,5,0,Home,Activity_Create,91,6
 SelectedBuild=0
 VisibleModules=1,2,3,4,5,6,7,8,9,10

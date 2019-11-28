@@ -96,7 +96,8 @@ Sub Activity_Create(FirstTime As Boolean)
 	
 	Builder.Initialize.baseUrl("https://jeebres.ir/api/v1/y88d/")
 	'Builder.UnsafeMode(True)
-	Builder.addHeader(CreateMap("appkey":"78e0b233fd4ffc5ffd1eb839158c4a2d"))
+	Dim appkey As String = File.ReadString(File.DirAssets,"appkey.me.txt")
+	Builder.addHeader(CreateMap("appkey":appkey))
 	retrofit.Initialize(Builder)
 	retrofit.Get("maindata","app",Null)
 End Sub
