@@ -73,9 +73,9 @@ Sub Globals
 
 	Dim alltext As String
 	Dim hlbl As HeightLabel
-	Dim retrofit As ARRetrofit
-	Dim call As ARCall
-	Dim downloader As ARFileClient
+'	Dim retrofit As ARRetrofit
+'	Dim call As ARCall
+'	Dim downloader As ARFileClient
 End Sub
 Sub ACToolBarLight1_NavigationItemClick
 	StartActivity(finger)
@@ -145,12 +145,12 @@ Sub Activity_Create(FirstTime As Boolean)
 	
 
 	addtitle_sub(Main.txtnewstitle,"")
-	retrofit.InitializeProgress("http://google.com/","retrofit")
-	downloader.Initialize(retrofit)
-
-	call = downloader.getFile("http://havadari.iquizland.ir/api/api.php?request=GetSingleNews&news_id="&Main.newsid)
-	retrofit.enqueueCall(call,downloader.getFileCallback("retrofits","getnews"))
-	
+'	retrofit.InitializeProgress("http://google.com/","retrofit")
+'	downloader.Initialize(retrofit)
+'
+'	call = downloader.getFile("http://havadari.iquizland.ir/api/api.php?request=GetSingleNews&news_id="&Main.newsid)
+'	retrofit.enqueueCall(call,downloader.getFileCallback("retrofits","getnews"))
+'	
 
 	
 	Disable_ScroolbarH(ScrollView1)
@@ -220,71 +220,71 @@ End Sub
 Sub Activity_Resume
 
 End Sub
-Sub retrofits_onFileResponse(response As ARResponse)
-	Dim parser As JSONParser
-	If response.isSuccessful Then
-		Dim body As ARResponseBody = response.body
-		Dim a As String = body.string
-		
-		Dim parser As JSONParser
-		parser.Initialize(a)
-		Dim root As Map = parser.NextObject
-		Dim result As String = root.Get("result")
-		Dim news As Map = root.Get("news")
-		Dim thumbnail As String = news.Get("thumbnail")
-		Dim images As List = news.Get("images")
-		For Each colimages As String In images
-		Next
-		Dim has_audio As String = news.Get("has_audio")
-		Dim videos As List = news.Get("videos")
-		Dim title As String = news.Get("title")
-		Dim content As String = news.Get("content")
-		Dim has_video As String = news.Get("has_video")
-		Dim manba As String = news.Get("manba")
-		Dim has_image As String = news.Get("has_image")
-		Dim audios As List = news.Get("audios")
-		Dim rutitr As String = news.Get("rutitr")
-		Dim excerpt As String = news.Get("excerpt")
-		Dim views As Int = news.Get("views")
-		Dim likes As Int = news.Get("likes")
-		
-		
-		Dim lable As Label
-		lable.Initialize("")
-		lable.Text=Convert_FA2EN(content)
-
-		alltext=alltext&CRLF&Convert_FA2EN(content)
-		lable.Typeface=C.irs
-		Dim h As Hitex_Utils
-		lable.TextColor=Colors.Black
-		lable.Padding=Array As Int (20dip,5dip,20dip,0)
-		lable.TextSize=14
-		lable.Gravity= Gravity.RIGHT
-		lable.Typeface=C.irs
-
-		ScrollView1.Panel.AddView(lable,2%x,toptemp,96%x,60%x)
-		lable.Height=h.GetTextHeight(lable)+5%x
-		toptemp=toptemp+lable.Height+5%x
-
-'	imglisnks.Put(imgtemp,Starter.postimg)
-	
-'	If File.Exists(File.DirInternal&"/Banoo/"&foldername,name) Then
-'		map = File.ReadList(File.DirInternal&"/Banoo/"&foldername,name)
-		'addviewtosv_sub
-		toolbar
-'	Else
-'		'Log(name)
-'		Try
-'			map = File.ReadList(File.DirAssets,"wed/"&name)
-'			addviewtosv_sub
-'			toolbar
-'		Catch
-		Pnlprb.Visible=False
-		'
-	
-		CallSubDelayed2( Me, "Justify_Text", lable )
-	End If
-End Sub
+'Sub retrofits_onFileResponse(response As ARResponse)
+'	Dim parser As JSONParser
+'	If response.isSuccessful Then
+'		Dim body As ARResponseBody = response.body
+'		Dim a As String = body.string
+'		
+'		Dim parser As JSONParser
+'		parser.Initialize(a)
+'		Dim root As Map = parser.NextObject
+'		Dim result As String = root.Get("result")
+'		Dim news As Map = root.Get("news")
+'		Dim thumbnail As String = news.Get("thumbnail")
+'		Dim images As List = news.Get("images")
+'		For Each colimages As String In images
+'		Next
+'		Dim has_audio As String = news.Get("has_audio")
+'		Dim videos As List = news.Get("videos")
+'		Dim title As String = news.Get("title")
+'		Dim content As String = news.Get("content")
+'		Dim has_video As String = news.Get("has_video")
+'		Dim manba As String = news.Get("manba")
+'		Dim has_image As String = news.Get("has_image")
+'		Dim audios As List = news.Get("audios")
+'		Dim rutitr As String = news.Get("rutitr")
+'		Dim excerpt As String = news.Get("excerpt")
+'		Dim views As Int = news.Get("views")
+'		Dim likes As Int = news.Get("likes")
+'		
+'		
+'		Dim lable As Label
+'		lable.Initialize("")
+'		lable.Text=Convert_FA2EN(content)
+'
+'		alltext=alltext&CRLF&Convert_FA2EN(content)
+'		lable.Typeface=C.irs
+'		Dim h As Hitex_Utils
+'		lable.TextColor=Colors.Black
+'		lable.Padding=Array As Int (20dip,5dip,20dip,0)
+'		lable.TextSize=14
+'		lable.Gravity= Gravity.RIGHT
+'		lable.Typeface=C.irs
+'
+'		ScrollView1.Panel.AddView(lable,2%x,toptemp,96%x,60%x)
+'		lable.Height=h.GetTextHeight(lable)+5%x
+'		toptemp=toptemp+lable.Height+5%x
+'
+''	imglisnks.Put(imgtemp,Starter.postimg)
+'	
+''	If File.Exists(File.DirInternal&"/Banoo/"&foldername,name) Then
+''		map = File.ReadList(File.DirInternal&"/Banoo/"&foldername,name)
+'		'addviewtosv_sub
+'		toolbar
+''	Else
+''		'Log(name)
+''		Try
+''			map = File.ReadList(File.DirAssets,"wed/"&name)
+''			addviewtosv_sub
+''			toolbar
+''		Catch
+'		Pnlprb.Visible=False
+'		'
+'	
+'		CallSubDelayed2( Me, "Justify_Text", lable )
+'	End If
+'End Sub
 
 Sub saato_ina(h13 As String) As String
 	Dim lbl2 As String

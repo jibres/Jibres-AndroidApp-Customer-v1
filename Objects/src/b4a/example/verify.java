@@ -33,7 +33,7 @@ public class verify extends Activity implements B4AActivity{
 		super.onCreate(savedInstanceState);
         mostCurrent = this;
 		if (processBA == null) {
-			processBA = new BA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.verify");
+			processBA = new anywheresoftware.b4a.ShellBA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.verify");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -328,6 +328,15 @@ public class verify extends Activity implements B4AActivity{
             
     }
 
+
+
+public static void initializeProcessGlobals() {
+             try {
+                Class.forName(BA.applicationContext.getPackageName() + ".main").getMethod("initializeProcessGlobals").invoke(null, null);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+}
 public anywheresoftware.b4a.keywords.Common __c = null;
 public de.amberhome.objects.appcompat.ACEditTextWrapper _ac = null;
 public anywheresoftware.b4a.objects.LabelWrapper _lbl1 = null;
@@ -342,243 +351,323 @@ public b4a.example.c _c = null;
 public b4a.example.starter _starter = null;
 public b4a.example.page _page = null;
 public b4a.example.finger _finger = null;
-
-public static void initializeProcessGlobals() {
-             try {
-                Class.forName(BA.applicationContext.getPackageName() + ".main").getMethod("initializeProcessGlobals").invoke(null, null);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-}
 public static String  _activity_click() throws Exception{
- //BA.debugLineNum = 134;BA.debugLine="Sub Activity_Click";
- //BA.debugLineNum = 135;BA.debugLine="StartActivity(page)";
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_click", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_click", null));}
+RDebugUtils.currentLine=1769472;
+ //BA.debugLineNum = 1769472;BA.debugLine="Sub Activity_Click";
+RDebugUtils.currentLine=1769473;
+ //BA.debugLineNum = 1769473;BA.debugLine="StartActivity(page)";
 anywheresoftware.b4a.keywords.Common.StartActivity(processBA,(Object)(mostCurrent._page.getObject()));
- //BA.debugLineNum = 136;BA.debugLine="End Sub";
+RDebugUtils.currentLine=1769474;
+ //BA.debugLineNum = 1769474;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_create(boolean _firsttime) throws Exception{
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_create", new Object[] {_firsttime}));}
 anywheresoftware.b4a.objects.ImageViewWrapper _img = null;
 anywheresoftware.b4a.objects.LabelWrapper _lbl = null;
 anywheresoftware.b4a.objects.PanelWrapper _pnl = null;
 ir.cafematerial.librariessupport.LibrariesSupport _cm = null;
- //BA.debugLineNum = 23;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 26;BA.debugLine="Activity.Background= C.Gradient(0xff54A3EC,0xff54";
-mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (0xff54a3ec),(int) (0xff5433b0),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 28;BA.debugLine="Dim img As ImageView";
+RDebugUtils.currentLine=1507328;
+ //BA.debugLineNum = 1507328;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+RDebugUtils.currentLine=1507331;
+ //BA.debugLineNum = 1507331;BA.debugLine="Activity.Background= C.Gradient(0xff54A3EC,0xff54";
+mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (0xff54a3ec),(int) (0xff5433b0),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=1507333;
+ //BA.debugLineNum = 1507333;BA.debugLine="Dim img As ImageView";
 _img = new anywheresoftware.b4a.objects.ImageViewWrapper();
- //BA.debugLineNum = 29;BA.debugLine="C.imgCreate(img,\"\",Activity,40%x,50%y-50%x,20%x,2";
-mostCurrent._c._imgcreate(mostCurrent.activityBA,_img,"",mostCurrent._activity,anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (40),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 30;BA.debugLine="img.Bitmap=Application.Icon";
+RDebugUtils.currentLine=1507334;
+ //BA.debugLineNum = 1507334;BA.debugLine="C.imgCreate(img,\"\",Activity,40%x,50%y-50%x,20%x,2";
+mostCurrent._c._imgcreate /*String*/ (mostCurrent.activityBA,_img,"",mostCurrent._activity,anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (40),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA));
+RDebugUtils.currentLine=1507335;
+ //BA.debugLineNum = 1507335;BA.debugLine="img.Bitmap=Application.Icon";
 _img.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Application.getIcon().getObject()));
- //BA.debugLineNum = 33;BA.debugLine="Dim lbl As Label";
+RDebugUtils.currentLine=1507338;
+ //BA.debugLineNum = 1507338;BA.debugLine="Dim lbl As Label";
 _lbl = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 34;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-20%x,100%x,13%";
-mostCurrent._c._setlblset(mostCurrent.activityBA,_lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"تایید شماره همراه",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (20),(int) (0xffffffff));
- //BA.debugLineNum = 36;BA.debugLine="Dim lbl As Label";
+RDebugUtils.currentLine=1507339;
+ //BA.debugLineNum = 1507339;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-20%x,100%x,13%";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,_lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"تایید شماره همراه",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),(int) (0xffffffff));
+RDebugUtils.currentLine=1507341;
+ //BA.debugLineNum = 1507341;BA.debugLine="Dim lbl As Label";
 _lbl = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 37;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-10%x,100%x,13%";
-mostCurrent._c._setlblset(mostCurrent.activityBA,_lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"لطفا کد پیامک شده را وارد کنید",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (15),(int) (0xffffffff));
- //BA.debugLineNum = 39;BA.debugLine="Dim pnl As Panel";
+RDebugUtils.currentLine=1507342;
+ //BA.debugLineNum = 1507342;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-10%x,100%x,13%";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,_lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"لطفا کد پیامک شده را وارد کنید",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (15),(int) (0xffffffff));
+RDebugUtils.currentLine=1507344;
+ //BA.debugLineNum = 1507344;BA.debugLine="Dim pnl As Panel";
 _pnl = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 40;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x,50%y+15%x,14%x,1";
-mostCurrent._c._pnlcreate(mostCurrent.activityBA,_pnl,"",mostCurrent._activity,anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
- //BA.debugLineNum = 41;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
-_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 44;BA.debugLine="C.setlblset(lbl1,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
-mostCurrent._c._setlblset(mostCurrent.activityBA,mostCurrent._lbl1,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (20),(int) (-1));
- //BA.debugLineNum = 46;BA.debugLine="Dim pnl As Panel";
+RDebugUtils.currentLine=1507345;
+ //BA.debugLineNum = 1507345;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x,50%y+15%x,14%x,1";
+mostCurrent._c._pnlcreate /*String*/ (mostCurrent.activityBA,_pnl,"",mostCurrent._activity,anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
+RDebugUtils.currentLine=1507346;
+ //BA.debugLineNum = 1507346;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
+_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=1507349;
+ //BA.debugLineNum = 1507349;BA.debugLine="C.setlblset(lbl1,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,mostCurrent._lbl1,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),(int) (-1));
+RDebugUtils.currentLine=1507351;
+ //BA.debugLineNum = 1507351;BA.debugLine="Dim pnl As Panel";
 _pnl = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 47;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+16%x,50%y+15%x,1";
-mostCurrent._c._pnlcreate(mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
- //BA.debugLineNum = 48;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
-_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 50;BA.debugLine="C.setlblset(lbl2,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
-mostCurrent._c._setlblset(mostCurrent.activityBA,mostCurrent._lbl2,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (20),(int) (-1));
- //BA.debugLineNum = 52;BA.debugLine="Dim pnl As Panel";
+RDebugUtils.currentLine=1507352;
+ //BA.debugLineNum = 1507352;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+16%x,50%y+15%x,1";
+mostCurrent._c._pnlcreate /*String*/ (mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
+RDebugUtils.currentLine=1507353;
+ //BA.debugLineNum = 1507353;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
+_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=1507355;
+ //BA.debugLineNum = 1507355;BA.debugLine="C.setlblset(lbl2,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,mostCurrent._lbl2,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),(int) (-1));
+RDebugUtils.currentLine=1507357;
+ //BA.debugLineNum = 1507357;BA.debugLine="Dim pnl As Panel";
 _pnl = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 53;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+(16%x*2),50%y+15";
-mostCurrent._c._pnlcreate(mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+(anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)*2)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
- //BA.debugLineNum = 54;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
-_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 56;BA.debugLine="C.setlblset(lbl3,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
-mostCurrent._c._setlblset(mostCurrent.activityBA,mostCurrent._lbl3,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (20),(int) (-1));
- //BA.debugLineNum = 58;BA.debugLine="Dim pnl As Panel";
+RDebugUtils.currentLine=1507358;
+ //BA.debugLineNum = 1507358;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+(16%x*2),50%y+15";
+mostCurrent._c._pnlcreate /*String*/ (mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+(anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)*2)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
+RDebugUtils.currentLine=1507359;
+ //BA.debugLineNum = 1507359;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
+_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=1507361;
+ //BA.debugLineNum = 1507361;BA.debugLine="C.setlblset(lbl3,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,mostCurrent._lbl3,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),(int) (-1));
+RDebugUtils.currentLine=1507363;
+ //BA.debugLineNum = 1507363;BA.debugLine="Dim pnl As Panel";
 _pnl = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 59;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+(16%x*3),50%y+15";
-mostCurrent._c._pnlcreate(mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+(anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)*3)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
- //BA.debugLineNum = 60;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
-_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 62;BA.debugLine="C.setlblset(lbl4,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
-mostCurrent._c._setlblset(mostCurrent.activityBA,mostCurrent._lbl4,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (20),(int) (-1));
- //BA.debugLineNum = 65;BA.debugLine="ac.Initialize(\"ed\")";
+RDebugUtils.currentLine=1507364;
+ //BA.debugLineNum = 1507364;BA.debugLine="C.PnlCreate(pnl,\"\",Activity,19%x+(16%x*3),50%y+15";
+mostCurrent._c._pnlcreate /*String*/ (mostCurrent.activityBA,_pnl,"",mostCurrent._activity,(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA)+(anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (16),mostCurrent.activityBA)*3)),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
+RDebugUtils.currentLine=1507365;
+ //BA.debugLineNum = 1507365;BA.debugLine="pnl.Background= C.Gradient(-1,-1,5000,True)";
+_pnl.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (-1),(int) (-1),(int) (5000),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=1507367;
+ //BA.debugLineNum = 1507367;BA.debugLine="C.setlblset(lbl4,\"lblc\",pnl,0,0,-1,-1,\"\",Gravity.";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,mostCurrent._lbl4,"lblc",(anywheresoftware.b4a.objects.ActivityWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ActivityWrapper(), (anywheresoftware.b4a.BALayout)(_pnl.getObject())),(int) (0),(int) (0),(int) (-1),(int) (-1),"",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),(int) (-1));
+RDebugUtils.currentLine=1507370;
+ //BA.debugLineNum = 1507370;BA.debugLine="ac.Initialize(\"ed\")";
 mostCurrent._ac.Initialize(mostCurrent.activityBA,"ed");
- //BA.debugLineNum = 66;BA.debugLine="Activity.AddView(ac,129%x,50%y+15%x,57%x,14%x)";
+RDebugUtils.currentLine=1507371;
+ //BA.debugLineNum = 1507371;BA.debugLine="Activity.AddView(ac,129%x,50%y+15%x,57%x,14%x)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._ac.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (129),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (15),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (57),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (14),mostCurrent.activityBA));
- //BA.debugLineNum = 67;BA.debugLine="ac.Typeface=c.irs";
-mostCurrent._ac.setTypeface((android.graphics.Typeface)(mostCurrent._c._irs.getObject()));
- //BA.debugLineNum = 68;BA.debugLine="ac.Hint=\"شماره موبایل\"";
+RDebugUtils.currentLine=1507372;
+ //BA.debugLineNum = 1507372;BA.debugLine="ac.Typeface=c.irs";
+mostCurrent._ac.setTypeface((android.graphics.Typeface)(mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ .getObject()));
+RDebugUtils.currentLine=1507373;
+ //BA.debugLineNum = 1507373;BA.debugLine="ac.Hint=\"شماره موبایل\"";
 mostCurrent._ac.setHint("شماره موبایل");
- //BA.debugLineNum = 69;BA.debugLine="ac.HintColor=0x5AFFFFFF";
+RDebugUtils.currentLine=1507374;
+ //BA.debugLineNum = 1507374;BA.debugLine="ac.HintColor=0x5AFFFFFF";
 mostCurrent._ac.setHintColor((int) (0x5affffff));
- //BA.debugLineNum = 70;BA.debugLine="Dim cm As cmLibrariesSupport";
+RDebugUtils.currentLine=1507375;
+ //BA.debugLineNum = 1507375;BA.debugLine="Dim cm As cmLibrariesSupport";
 _cm = new ir.cafematerial.librariessupport.LibrariesSupport();
- //BA.debugLineNum = 71;BA.debugLine="cm.SetEditTextTintColor(ac,Colors.Transparent,Col";
+RDebugUtils.currentLine=1507376;
+ //BA.debugLineNum = 1507376;BA.debugLine="cm.SetEditTextTintColor(ac,Colors.Transparent,Col";
 _cm.SetEditTextTintColor((android.widget.TextView)(mostCurrent._ac.getObject()),anywheresoftware.b4a.keywords.Common.Colors.Transparent,anywheresoftware.b4a.keywords.Common.Colors.Transparent);
- //BA.debugLineNum = 72;BA.debugLine="c.Force_RtlSupported4View(ac)";
-mostCurrent._c._force_rtlsupported4view(mostCurrent.activityBA,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(mostCurrent._ac.getObject())));
- //BA.debugLineNum = 73;BA.debugLine="ac.TextColor=Colors.White";
+RDebugUtils.currentLine=1507377;
+ //BA.debugLineNum = 1507377;BA.debugLine="c.Force_RtlSupported4View(ac)";
+mostCurrent._c._force_rtlsupported4view /*String*/ (mostCurrent.activityBA,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(mostCurrent._ac.getObject())));
+RDebugUtils.currentLine=1507378;
+ //BA.debugLineNum = 1507378;BA.debugLine="ac.TextColor=Colors.White";
 mostCurrent._ac.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.White);
- //BA.debugLineNum = 74;BA.debugLine="ac.InputType=ac.INPUT_TYPE_NUMBERS";
+RDebugUtils.currentLine=1507379;
+ //BA.debugLineNum = 1507379;BA.debugLine="ac.InputType=ac.INPUT_TYPE_NUMBERS";
 mostCurrent._ac.setInputType(mostCurrent._ac.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 75;BA.debugLine="ac.ForceDoneButton=True";
+RDebugUtils.currentLine=1507380;
+ //BA.debugLineNum = 1507380;BA.debugLine="ac.ForceDoneButton=True";
 mostCurrent._ac.setForceDoneButton(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 76;BA.debugLine="ac.RequestFocus";
+RDebugUtils.currentLine=1507381;
+ //BA.debugLineNum = 1507381;BA.debugLine="ac.RequestFocus";
 mostCurrent._ac.RequestFocus();
- //BA.debugLineNum = 78;BA.debugLine="C.show_key(ac,\"\")";
-mostCurrent._c._show_key(mostCurrent.activityBA,(anywheresoftware.b4a.objects.EditTextWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.EditTextWrapper(), (android.widget.EditText)(mostCurrent._ac.getObject())),"");
- //BA.debugLineNum = 79;BA.debugLine="End Sub";
+RDebugUtils.currentLine=1507383;
+ //BA.debugLineNum = 1507383;BA.debugLine="C.show_key(ac,\"\")";
+mostCurrent._c._show_key /*void*/ (mostCurrent.activityBA,(anywheresoftware.b4a.objects.EditTextWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.EditTextWrapper(), (android.widget.EditText)(mostCurrent._ac.getObject())),"");
+RDebugUtils.currentLine=1507384;
+ //BA.debugLineNum = 1507384;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 141;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 143;BA.debugLine="End Sub";
+RDebugUtils.currentModule="verify";
+RDebugUtils.currentLine=1900544;
+ //BA.debugLineNum = 1900544;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=1900546;
+ //BA.debugLineNum = 1900546;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 137;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 139;BA.debugLine="End Sub";
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
+RDebugUtils.currentLine=1835008;
+ //BA.debugLineNum = 1835008;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=1835010;
+ //BA.debugLineNum = 1835010;BA.debugLine="End Sub";
 return "";
 }
 public static String  _ed_textchanged(String _old,String _new) throws Exception{
- //BA.debugLineNum = 93;BA.debugLine="Sub ed_TextChanged (Old As String, New As String)";
- //BA.debugLineNum = 95;BA.debugLine="Select New.Length";
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "ed_textchanged", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "ed_textchanged", new Object[] {_old,_new}));}
+RDebugUtils.currentLine=1703936;
+ //BA.debugLineNum = 1703936;BA.debugLine="Sub ed_TextChanged (Old As String, New As String)";
+RDebugUtils.currentLine=1703938;
+ //BA.debugLineNum = 1703938;BA.debugLine="Select New.Length";
 switch (BA.switchObjectToInt(_new.length(),(int) (0),(int) (1),(int) (2),(int) (3),(int) (4),(int) (5))) {
 case 0: {
- //BA.debugLineNum = 98;BA.debugLine="lbl1.Text=\"\"";
+RDebugUtils.currentLine=1703941;
+ //BA.debugLineNum = 1703941;BA.debugLine="lbl1.Text=\"\"";
 mostCurrent._lbl1.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 99;BA.debugLine="lbl2.Text=\"\"";
+RDebugUtils.currentLine=1703942;
+ //BA.debugLineNum = 1703942;BA.debugLine="lbl2.Text=\"\"";
 mostCurrent._lbl2.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 100;BA.debugLine="lbl3.Text=\"\"";
+RDebugUtils.currentLine=1703943;
+ //BA.debugLineNum = 1703943;BA.debugLine="lbl3.Text=\"\"";
 mostCurrent._lbl3.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 101;BA.debugLine="lbl4.Text=\"\"";
+RDebugUtils.currentLine=1703944;
+ //BA.debugLineNum = 1703944;BA.debugLine="lbl4.Text=\"\"";
 mostCurrent._lbl4.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 102;BA.debugLine="pnlcolor(-1,-1,-1,-1)";
+RDebugUtils.currentLine=1703945;
+ //BA.debugLineNum = 1703945;BA.debugLine="pnlcolor(-1,-1,-1,-1)";
 _pnlcolor((int) (-1),(int) (-1),(int) (-1),(int) (-1));
  break; }
 case 1: {
- //BA.debugLineNum = 104;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
+RDebugUtils.currentLine=1703947;
+ //BA.debugLineNum = 1703947;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
 mostCurrent._lbl1.setText(BA.ObjectToCharSequence(_new.substring((int) (0),(int) (1))));
- //BA.debugLineNum = 105;BA.debugLine="lbl2.Text=\"\"";
+RDebugUtils.currentLine=1703948;
+ //BA.debugLineNum = 1703948;BA.debugLine="lbl2.Text=\"\"";
 mostCurrent._lbl2.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 106;BA.debugLine="lbl3.Text=\"\"";
+RDebugUtils.currentLine=1703949;
+ //BA.debugLineNum = 1703949;BA.debugLine="lbl3.Text=\"\"";
 mostCurrent._lbl3.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 107;BA.debugLine="lbl4.Text=\"\"";
+RDebugUtils.currentLine=1703950;
+ //BA.debugLineNum = 1703950;BA.debugLine="lbl4.Text=\"\"";
 mostCurrent._lbl4.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 108;BA.debugLine="pnlcolor(0xFF004383,-1,-1,-1)";
+RDebugUtils.currentLine=1703951;
+ //BA.debugLineNum = 1703951;BA.debugLine="pnlcolor(0xFF004383,-1,-1,-1)";
 _pnlcolor((int) (0xff004383),(int) (-1),(int) (-1),(int) (-1));
  break; }
 case 2: {
- //BA.debugLineNum = 110;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
+RDebugUtils.currentLine=1703953;
+ //BA.debugLineNum = 1703953;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
 mostCurrent._lbl1.setText(BA.ObjectToCharSequence(_new.substring((int) (0),(int) (1))));
- //BA.debugLineNum = 111;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
+RDebugUtils.currentLine=1703954;
+ //BA.debugLineNum = 1703954;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
 mostCurrent._lbl2.setText(BA.ObjectToCharSequence(_new.substring((int) (1),(int) (2))));
- //BA.debugLineNum = 112;BA.debugLine="lbl3.Text=\"\"";
+RDebugUtils.currentLine=1703955;
+ //BA.debugLineNum = 1703955;BA.debugLine="lbl3.Text=\"\"";
 mostCurrent._lbl3.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 113;BA.debugLine="lbl4.Text=\"\"";
+RDebugUtils.currentLine=1703956;
+ //BA.debugLineNum = 1703956;BA.debugLine="lbl4.Text=\"\"";
 mostCurrent._lbl4.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 114;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,-1,-1)";
+RDebugUtils.currentLine=1703957;
+ //BA.debugLineNum = 1703957;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,-1,-1)";
 _pnlcolor((int) (0xff004383),(int) (0xff004383),(int) (-1),(int) (-1));
  break; }
 case 3: {
- //BA.debugLineNum = 116;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
+RDebugUtils.currentLine=1703959;
+ //BA.debugLineNum = 1703959;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
 mostCurrent._lbl1.setText(BA.ObjectToCharSequence(_new.substring((int) (0),(int) (1))));
- //BA.debugLineNum = 117;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
+RDebugUtils.currentLine=1703960;
+ //BA.debugLineNum = 1703960;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
 mostCurrent._lbl2.setText(BA.ObjectToCharSequence(_new.substring((int) (1),(int) (2))));
- //BA.debugLineNum = 118;BA.debugLine="lbl3.Text=New.SubString2(2,3)";
+RDebugUtils.currentLine=1703961;
+ //BA.debugLineNum = 1703961;BA.debugLine="lbl3.Text=New.SubString2(2,3)";
 mostCurrent._lbl3.setText(BA.ObjectToCharSequence(_new.substring((int) (2),(int) (3))));
- //BA.debugLineNum = 119;BA.debugLine="lbl4.Text=\"\"";
+RDebugUtils.currentLine=1703962;
+ //BA.debugLineNum = 1703962;BA.debugLine="lbl4.Text=\"\"";
 mostCurrent._lbl4.setText(BA.ObjectToCharSequence(""));
- //BA.debugLineNum = 120;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,0xFF004383,-1)";
+RDebugUtils.currentLine=1703963;
+ //BA.debugLineNum = 1703963;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,0xFF004383,-1)";
 _pnlcolor((int) (0xff004383),(int) (0xff004383),(int) (0xff004383),(int) (-1));
  break; }
 case 4: {
- //BA.debugLineNum = 123;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
+RDebugUtils.currentLine=1703966;
+ //BA.debugLineNum = 1703966;BA.debugLine="lbl1.Text=New.SubString2(0,1)";
 mostCurrent._lbl1.setText(BA.ObjectToCharSequence(_new.substring((int) (0),(int) (1))));
- //BA.debugLineNum = 124;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
+RDebugUtils.currentLine=1703967;
+ //BA.debugLineNum = 1703967;BA.debugLine="lbl2.Text=New.SubString2(1,2)";
 mostCurrent._lbl2.setText(BA.ObjectToCharSequence(_new.substring((int) (1),(int) (2))));
- //BA.debugLineNum = 125;BA.debugLine="lbl3.Text=New.SubString2(2,3)";
+RDebugUtils.currentLine=1703968;
+ //BA.debugLineNum = 1703968;BA.debugLine="lbl3.Text=New.SubString2(2,3)";
 mostCurrent._lbl3.setText(BA.ObjectToCharSequence(_new.substring((int) (2),(int) (3))));
- //BA.debugLineNum = 126;BA.debugLine="lbl4.Text=New.SubString2(3,4)";
+RDebugUtils.currentLine=1703969;
+ //BA.debugLineNum = 1703969;BA.debugLine="lbl4.Text=New.SubString2(3,4)";
 mostCurrent._lbl4.setText(BA.ObjectToCharSequence(_new.substring((int) (3),(int) (4))));
- //BA.debugLineNum = 127;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,0xFF004383,0xFF0";
+RDebugUtils.currentLine=1703970;
+ //BA.debugLineNum = 1703970;BA.debugLine="pnlcolor(0xFF004383,0xFF004383,0xFF004383,0xFF0";
 _pnlcolor((int) (0xff004383),(int) (0xff004383),(int) (0xff004383),(int) (0xff004383));
  break; }
 case 5: {
- //BA.debugLineNum = 129;BA.debugLine="ac.Text=Old";
+RDebugUtils.currentLine=1703972;
+ //BA.debugLineNum = 1703972;BA.debugLine="ac.Text=Old";
 mostCurrent._ac.setText(BA.ObjectToCharSequence(_old));
- //BA.debugLineNum = 130;BA.debugLine="ac.SetSelection(4,0)";
+RDebugUtils.currentLine=1703973;
+ //BA.debugLineNum = 1703973;BA.debugLine="ac.SetSelection(4,0)";
 mostCurrent._ac.SetSelection((int) (4),(int) (0));
  break; }
 }
 ;
- //BA.debugLineNum = 133;BA.debugLine="End Sub";
-return "";
-}
-public static String  _globals() throws Exception{
- //BA.debugLineNum = 12;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 16;BA.debugLine="Dim ac As ACEditText";
-mostCurrent._ac = new de.amberhome.objects.appcompat.ACEditTextWrapper();
- //BA.debugLineNum = 17;BA.debugLine="Dim lbl1 As Label";
-mostCurrent._lbl1 = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 18;BA.debugLine="Dim lbl2 As Label";
-mostCurrent._lbl2 = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 19;BA.debugLine="Dim lbl3 As Label";
-mostCurrent._lbl3 = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 20;BA.debugLine="Dim lbl4 As Label";
-mostCurrent._lbl4 = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 21;BA.debugLine="End Sub";
-return "";
-}
-public static String  _lblc_click() throws Exception{
- //BA.debugLineNum = 80;BA.debugLine="Sub lblc_Click";
- //BA.debugLineNum = 81;BA.debugLine="C.show_key(ac,\"\")";
-mostCurrent._c._show_key(mostCurrent.activityBA,(anywheresoftware.b4a.objects.EditTextWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.EditTextWrapper(), (android.widget.EditText)(mostCurrent._ac.getObject())),"");
- //BA.debugLineNum = 82;BA.debugLine="End Sub";
+RDebugUtils.currentLine=1703976;
+ //BA.debugLineNum = 1703976;BA.debugLine="End Sub";
 return "";
 }
 public static String  _pnlcolor(int _a,int _b,int _cd,int _d) throws Exception{
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "pnlcolor", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "pnlcolor", new Object[] {_a,_b,_cd,_d}));}
 anywheresoftware.b4a.objects.PanelWrapper _pnl1 = null;
 anywheresoftware.b4a.objects.PanelWrapper _pnl2 = null;
 anywheresoftware.b4a.objects.PanelWrapper _pnl3 = null;
 anywheresoftware.b4a.objects.PanelWrapper _pnl4 = null;
- //BA.debugLineNum = 83;BA.debugLine="Sub pnlcolor(a As Int,b As Int,cd As Int,d As Int)";
- //BA.debugLineNum = 84;BA.debugLine="Dim pnl1 As Panel = lbl1.Parent";
+RDebugUtils.currentLine=1638400;
+ //BA.debugLineNum = 1638400;BA.debugLine="Sub pnlcolor(a As Int,b As Int,cd As Int,d As Int)";
+RDebugUtils.currentLine=1638401;
+ //BA.debugLineNum = 1638401;BA.debugLine="Dim pnl1 As Panel = lbl1.Parent";
 _pnl1 = new anywheresoftware.b4a.objects.PanelWrapper();
 _pnl1.setObject((android.view.ViewGroup)(mostCurrent._lbl1.getParent()));
- //BA.debugLineNum = 85;BA.debugLine="Dim pnl2 As Panel = lbl2.Parent";
+RDebugUtils.currentLine=1638402;
+ //BA.debugLineNum = 1638402;BA.debugLine="Dim pnl2 As Panel = lbl2.Parent";
 _pnl2 = new anywheresoftware.b4a.objects.PanelWrapper();
 _pnl2.setObject((android.view.ViewGroup)(mostCurrent._lbl2.getParent()));
- //BA.debugLineNum = 86;BA.debugLine="Dim pnl3 As Panel = lbl3.Parent";
+RDebugUtils.currentLine=1638403;
+ //BA.debugLineNum = 1638403;BA.debugLine="Dim pnl3 As Panel = lbl3.Parent";
 _pnl3 = new anywheresoftware.b4a.objects.PanelWrapper();
 _pnl3.setObject((android.view.ViewGroup)(mostCurrent._lbl3.getParent()));
- //BA.debugLineNum = 87;BA.debugLine="Dim pnl4 As Panel = lbl4.Parent";
+RDebugUtils.currentLine=1638404;
+ //BA.debugLineNum = 1638404;BA.debugLine="Dim pnl4 As Panel = lbl4.Parent";
 _pnl4 = new anywheresoftware.b4a.objects.PanelWrapper();
 _pnl4.setObject((android.view.ViewGroup)(mostCurrent._lbl4.getParent()));
- //BA.debugLineNum = 88;BA.debugLine="pnl1.Color=a";
+RDebugUtils.currentLine=1638405;
+ //BA.debugLineNum = 1638405;BA.debugLine="pnl1.Color=a";
 _pnl1.setColor(_a);
- //BA.debugLineNum = 89;BA.debugLine="pnl2.Color=b";
+RDebugUtils.currentLine=1638406;
+ //BA.debugLineNum = 1638406;BA.debugLine="pnl2.Color=b";
 _pnl2.setColor(_b);
- //BA.debugLineNum = 90;BA.debugLine="pnl3.Color=cd";
+RDebugUtils.currentLine=1638407;
+ //BA.debugLineNum = 1638407;BA.debugLine="pnl3.Color=cd";
 _pnl3.setColor(_cd);
- //BA.debugLineNum = 91;BA.debugLine="pnl4.Color=d";
+RDebugUtils.currentLine=1638408;
+ //BA.debugLineNum = 1638408;BA.debugLine="pnl4.Color=d";
 _pnl4.setColor(_d);
- //BA.debugLineNum = 92;BA.debugLine="End Sub";
+RDebugUtils.currentLine=1638409;
+ //BA.debugLineNum = 1638409;BA.debugLine="End Sub";
 return "";
 }
-public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 6;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 10;BA.debugLine="End Sub";
+public static String  _lblc_click() throws Exception{
+RDebugUtils.currentModule="verify";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "lblc_click", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "lblc_click", null));}
+RDebugUtils.currentLine=1572864;
+ //BA.debugLineNum = 1572864;BA.debugLine="Sub lblc_Click";
+RDebugUtils.currentLine=1572865;
+ //BA.debugLineNum = 1572865;BA.debugLine="C.show_key(ac,\"\")";
+mostCurrent._c._show_key /*void*/ (mostCurrent.activityBA,(anywheresoftware.b4a.objects.EditTextWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.EditTextWrapper(), (android.widget.EditText)(mostCurrent._ac.getObject())),"");
+RDebugUtils.currentLine=1572866;
+ //BA.debugLineNum = 1572866;BA.debugLine="End Sub";
 return "";
 }
 }

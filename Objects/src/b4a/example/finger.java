@@ -33,7 +33,7 @@ public class finger extends Activity implements B4AActivity{
 		super.onCreate(savedInstanceState);
         mostCurrent = this;
 		if (processBA == null) {
-			processBA = new BA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.finger");
+			processBA = new anywheresoftware.b4a.ShellBA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.finger");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -328,6 +328,15 @@ public class finger extends Activity implements B4AActivity{
             
     }
 
+
+
+public static void initializeProcessGlobals() {
+             try {
+                Class.forName(BA.applicationContext.getPackageName() + ".main").getMethod("initializeProcessGlobals").invoke(null, null);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+}
 public anywheresoftware.b4a.keywords.Common __c = null;
 public b4a.example.fingerprintmanager _fingerprint = null;
 public ir.hitexroid.lottie.Hitex_LottieAnimationView _lav = null;
@@ -340,50 +349,68 @@ public b4a.example.home _home = null;
 public b4a.example.c _c = null;
 public b4a.example.starter _starter = null;
 public b4a.example.page _page = null;
-
-public static void initializeProcessGlobals() {
-             try {
-                Class.forName(BA.applicationContext.getPackageName() + ".main").getMethod("initializeProcessGlobals").invoke(null, null);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-}
 public static String  _activity_create(boolean _firsttime) throws Exception{
- //BA.debugLineNum = 20;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 23;BA.debugLine="Activity.Background= C.Gradient(0xFFFFFFFF,0xFFFF";
-mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient(mostCurrent.activityBA,(int) (0xffffffff),(int) (0xffffffff),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 25;BA.debugLine="fingerprint.Initialize (Me, \"auth\")";
-mostCurrent._fingerprint._initialize(processBA,finger.getObject(),"auth");
- //BA.debugLineNum = 30;BA.debugLine="lav.Initialize(\"LAV\")";
+RDebugUtils.currentModule="finger";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_create", new Object[] {_firsttime}));}
+RDebugUtils.currentLine=7405568;
+ //BA.debugLineNum = 7405568;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+RDebugUtils.currentLine=7405571;
+ //BA.debugLineNum = 7405571;BA.debugLine="Activity.Background= C.Gradient(0xFFFFFFFF,0xFFFF";
+mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (0xffffffff),(int) (0xffffffff),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=7405573;
+ //BA.debugLineNum = 7405573;BA.debugLine="fingerprint.Initialize (Me, \"auth\")";
+mostCurrent._fingerprint._initialize /*String*/ (null,processBA,finger.getObject(),"auth");
+RDebugUtils.currentLine=7405578;
+ //BA.debugLineNum = 7405578;BA.debugLine="lav.Initialize(\"LAV\")";
 mostCurrent._lav.Initialize(mostCurrent.activityBA,"LAV");
- //BA.debugLineNum = 31;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
+RDebugUtils.currentLine=7405579;
+ //BA.debugLineNum = 7405579;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._lav.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (60),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (70),mostCurrent.activityBA));
- //BA.debugLineNum = 32;BA.debugLine="lav.SetAnimation(File.DirAssets,\"gray.json\")";
+RDebugUtils.currentLine=7405580;
+ //BA.debugLineNum = 7405580;BA.debugLine="lav.SetAnimation(File.DirAssets,\"gray.json\")";
 mostCurrent._lav.SetAnimation(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"gray.json");
- //BA.debugLineNum = 33;BA.debugLine="lav.SetLoop(True) 'repeat";
+RDebugUtils.currentLine=7405581;
+ //BA.debugLineNum = 7405581;BA.debugLine="lav.SetLoop(True) 'repeat";
 mostCurrent._lav.SetLoop(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 34;BA.debugLine="lav.PlayAnimation";
+RDebugUtils.currentLine=7405582;
+ //BA.debugLineNum = 7405582;BA.debugLine="lav.PlayAnimation";
 mostCurrent._lav.PlayAnimation();
- //BA.debugLineNum = 35;BA.debugLine="lav.Speed=.7";
+RDebugUtils.currentLine=7405583;
+ //BA.debugLineNum = 7405583;BA.debugLine="lav.Speed=.7";
 mostCurrent._lav.setSpeed((float) (.7));
- //BA.debugLineNum = 38;BA.debugLine="fingerprint.Authenticate";
-mostCurrent._fingerprint._authenticate();
- //BA.debugLineNum = 41;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y+20%x,100%x,13%";
-mostCurrent._c._setlblset(mostCurrent.activityBA,mostCurrent._lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"لطفا اثر انگشت خود را تایید کنید",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs,(int) (15),(int) (0xff898989));
- //BA.debugLineNum = 42;BA.debugLine="End Sub";
+RDebugUtils.currentLine=7405586;
+ //BA.debugLineNum = 7405586;BA.debugLine="fingerprint.Authenticate";
+mostCurrent._fingerprint._authenticate /*String*/ (null);
+RDebugUtils.currentLine=7405589;
+ //BA.debugLineNum = 7405589;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y+20%x,100%x,13%";
+mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,mostCurrent._lbl,"",mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (13),mostCurrent.activityBA),"لطفا اثر انگشت خود را تایید کنید",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (15),(int) (0xff898989));
+RDebugUtils.currentLine=7405590;
+ //BA.debugLineNum = 7405590;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 77;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 79;BA.debugLine="End Sub";
+RDebugUtils.currentModule="finger";
+RDebugUtils.currentLine=7667712;
+ //BA.debugLineNum = 7667712;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=7667714;
+ //BA.debugLineNum = 7667714;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 73;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 75;BA.debugLine="End Sub";
+RDebugUtils.currentModule="finger";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
+RDebugUtils.currentLine=7602176;
+ //BA.debugLineNum = 7602176;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=7602178;
+ //BA.debugLineNum = 7602178;BA.debugLine="End Sub";
 return "";
 }
 public static void  _auth_complete(boolean _success,String _errormessage) throws Exception{
+RDebugUtils.currentModule="finger";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "auth_complete", false))
+	 {Debug.delegate(mostCurrent.activityBA, "auth_complete", new Object[] {_success,_errormessage}); return;}
 ResumableSub_Auth_Complete rsub = new ResumableSub_Auth_Complete(null,_success,_errormessage);
 rsub.resume(processBA, null);
 }
@@ -399,6 +426,7 @@ String _errormessage;
 
 @Override
 public void resume(BA ba, Object[] result) throws Exception{
+RDebugUtils.currentModule="finger";
 
     while (true) {
         switch (state) {
@@ -408,7 +436,8 @@ return;
 case 0:
 //C
 this.state = 1;
- //BA.debugLineNum = 59;BA.debugLine="If Success Then";
+RDebugUtils.currentLine=7536641;
+ //BA.debugLineNum = 7536641;BA.debugLine="If Success Then";
 if (true) break;
 
 case 1:
@@ -423,29 +452,38 @@ this.state = 5;
 case 3:
 //C
 this.state = 6;
- //BA.debugLineNum = 60;BA.debugLine="lav.RemoveView";
+RDebugUtils.currentLine=7536642;
+ //BA.debugLineNum = 7536642;BA.debugLine="lav.RemoveView";
 parent.mostCurrent._lav.RemoveView();
- //BA.debugLineNum = 61;BA.debugLine="lav.Initialize(\"LAV\")";
+RDebugUtils.currentLine=7536643;
+ //BA.debugLineNum = 7536643;BA.debugLine="lav.Initialize(\"LAV\")";
 parent.mostCurrent._lav.Initialize(mostCurrent.activityBA,"LAV");
- //BA.debugLineNum = 62;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
+RDebugUtils.currentLine=7536644;
+ //BA.debugLineNum = 7536644;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
 parent.mostCurrent._activity.AddView((android.view.View)(parent.mostCurrent._lav.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (60),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (70),mostCurrent.activityBA));
- //BA.debugLineNum = 63;BA.debugLine="lav.SetAnimation(File.DirAssets,\"green.json\")";
+RDebugUtils.currentLine=7536645;
+ //BA.debugLineNum = 7536645;BA.debugLine="lav.SetAnimation(File.DirAssets,\"green.json\")";
 parent.mostCurrent._lav.SetAnimation(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"green.json");
- //BA.debugLineNum = 64;BA.debugLine="lav.PlayAnimation";
+RDebugUtils.currentLine=7536646;
+ //BA.debugLineNum = 7536646;BA.debugLine="lav.PlayAnimation";
 parent.mostCurrent._lav.PlayAnimation();
- //BA.debugLineNum = 65;BA.debugLine="lav.Speed=.7";
+RDebugUtils.currentLine=7536647;
+ //BA.debugLineNum = 7536647;BA.debugLine="lav.Speed=.7";
 parent.mostCurrent._lav.setSpeed((float) (.7));
- //BA.debugLineNum = 66;BA.debugLine="lbl.Text=\"اثر انگشت تایید شد\"";
+RDebugUtils.currentLine=7536648;
+ //BA.debugLineNum = 7536648;BA.debugLine="lbl.Text=\"اثر انگشت تایید شد\"";
 parent.mostCurrent._lbl.setText(BA.ObjectToCharSequence("اثر انگشت تایید شد"));
- //BA.debugLineNum = 67;BA.debugLine="Sleep(2000 )";
-anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,this,(int) (2000));
+RDebugUtils.currentLine=7536649;
+ //BA.debugLineNum = 7536649;BA.debugLine="Sleep(2000 )";
+anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "finger", "auth_complete"),(int) (2000));
 this.state = 7;
 return;
 case 7:
 //C
 this.state = 6;
 ;
- //BA.debugLineNum = 68;BA.debugLine="Activity.Finish";
+RDebugUtils.currentLine=7536650;
+ //BA.debugLineNum = 7536650;BA.debugLine="Activity.Finish";
 parent.mostCurrent._activity.Finish();
  if (true) break;
 
@@ -458,7 +496,8 @@ case 6:
 //C
 this.state = -1;
 ;
- //BA.debugLineNum = 72;BA.debugLine="End Sub";
+RDebugUtils.currentLine=7536654;
+ //BA.debugLineNum = 7536654;BA.debugLine="End Sub";
 if (true) break;
 
             }
@@ -466,6 +505,9 @@ if (true) break;
     }
 }
 public static void  _auth_fail() throws Exception{
+RDebugUtils.currentModule="finger";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "auth_fail", false))
+	 {Debug.delegate(mostCurrent.activityBA, "auth_fail", null); return;}
 ResumableSub_Auth_fail rsub = new ResumableSub_Auth_fail(null);
 rsub.resume(processBA, null);
 }
@@ -477,6 +519,7 @@ b4a.example.finger parent;
 
 @Override
 public void resume(BA ba, Object[] result) throws Exception{
+RDebugUtils.currentModule="finger";
 
     while (true) {
         switch (state) {
@@ -486,51 +529,45 @@ return;
 case 0:
 //C
 this.state = -1;
- //BA.debugLineNum = 45;BA.debugLine="lav.RemoveView";
+RDebugUtils.currentLine=7471105;
+ //BA.debugLineNum = 7471105;BA.debugLine="lav.RemoveView";
 parent.mostCurrent._lav.RemoveView();
- //BA.debugLineNum = 46;BA.debugLine="lav.Initialize(\"LAV\")";
+RDebugUtils.currentLine=7471106;
+ //BA.debugLineNum = 7471106;BA.debugLine="lav.Initialize(\"LAV\")";
 parent.mostCurrent._lav.Initialize(mostCurrent.activityBA,"LAV");
- //BA.debugLineNum = 47;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
+RDebugUtils.currentLine=7471107;
+ //BA.debugLineNum = 7471107;BA.debugLine="Activity.AddView(lav,10%x,50%y-60%x,80%x,70%x)";
 parent.mostCurrent._activity.AddView((android.view.View)(parent.mostCurrent._lav.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (60),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (70),mostCurrent.activityBA));
- //BA.debugLineNum = 48;BA.debugLine="lav.SetAnimation(File.DirAssets,\"red.json\")";
+RDebugUtils.currentLine=7471108;
+ //BA.debugLineNum = 7471108;BA.debugLine="lav.SetAnimation(File.DirAssets,\"red.json\")";
 parent.mostCurrent._lav.SetAnimation(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"red.json");
- //BA.debugLineNum = 49;BA.debugLine="lav.PlayAnimation";
+RDebugUtils.currentLine=7471109;
+ //BA.debugLineNum = 7471109;BA.debugLine="lav.PlayAnimation";
 parent.mostCurrent._lav.PlayAnimation();
- //BA.debugLineNum = 50;BA.debugLine="lav.Speed=.7";
+RDebugUtils.currentLine=7471110;
+ //BA.debugLineNum = 7471110;BA.debugLine="lav.Speed=.7";
 parent.mostCurrent._lav.setSpeed((float) (.7));
- //BA.debugLineNum = 51;BA.debugLine="lbl.Text=\"اثر انگشت مطابق نیست\"";
+RDebugUtils.currentLine=7471111;
+ //BA.debugLineNum = 7471111;BA.debugLine="lbl.Text=\"اثر انگشت مطابق نیست\"";
 parent.mostCurrent._lbl.setText(BA.ObjectToCharSequence("اثر انگشت مطابق نیست"));
- //BA.debugLineNum = 53;BA.debugLine="Sleep(2000 )";
-anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,this,(int) (2000));
+RDebugUtils.currentLine=7471113;
+ //BA.debugLineNum = 7471113;BA.debugLine="Sleep(2000 )";
+anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "finger", "auth_fail"),(int) (2000));
 this.state = 1;
 return;
 case 1:
 //C
 this.state = -1;
 ;
- //BA.debugLineNum = 54;BA.debugLine="Activity.Finish";
+RDebugUtils.currentLine=7471114;
+ //BA.debugLineNum = 7471114;BA.debugLine="Activity.Finish";
 parent.mostCurrent._activity.Finish();
- //BA.debugLineNum = 57;BA.debugLine="End Sub";
+RDebugUtils.currentLine=7471117;
+ //BA.debugLineNum = 7471117;BA.debugLine="End Sub";
 if (true) break;
 
             }
         }
     }
-}
-public static String  _globals() throws Exception{
- //BA.debugLineNum = 12;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 15;BA.debugLine="Private fingerprint As FingerprintManager";
-mostCurrent._fingerprint = new b4a.example.fingerprintmanager();
- //BA.debugLineNum = 16;BA.debugLine="Dim lav As Hitex_LottieAnimationView";
-mostCurrent._lav = new ir.hitexroid.lottie.Hitex_LottieAnimationView();
- //BA.debugLineNum = 17;BA.debugLine="Dim lbl As Label";
-mostCurrent._lbl = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 18;BA.debugLine="End Sub";
-return "";
-}
-public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 6;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 10;BA.debugLine="End Sub";
-return "";
 }
 }

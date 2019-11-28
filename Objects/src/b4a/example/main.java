@@ -33,7 +33,7 @@ public class main extends Activity implements B4AActivity{
 		super.onCreate(savedInstanceState);
         mostCurrent = this;
 		if (processBA == null) {
-			processBA = new BA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.main");
+			processBA = new anywheresoftware.b4a.ShellBA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.main");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -328,6 +328,125 @@ public class main extends Activity implements B4AActivity{
             
     }
 
+
+
+public static void initializeProcessGlobals() {
+    
+    if (main.processGlobalsRun == false) {
+	    main.processGlobalsRun = true;
+		try {
+		        		
+        } catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+    }
+}
+public static boolean isAnyActivityVisible() {
+    boolean vis = false;
+vis = vis | (main.mostCurrent != null);
+vis = vis | (act_tip.mostCurrent != null);
+vis = vis | (login.mostCurrent != null);
+vis = vis | (verify.mostCurrent != null);
+vis = vis | (home.mostCurrent != null);
+vis = vis | (page.mostCurrent != null);
+vis = vis | (finger.mostCurrent != null);
+return vis;}
+
+private static BA killProgramHelper(BA ba) {
+    if (ba == null)
+        return null;
+    anywheresoftware.b4a.BA.SharedProcessBA sharedProcessBA = ba.sharedProcessBA;
+    if (sharedProcessBA == null || sharedProcessBA.activityBA == null)
+        return null;
+    return sharedProcessBA.activityBA.get();
+}
+public static void killProgram() {
+     {
+            Activity __a = null;
+            if (main.previousOne != null) {
+				__a = main.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(main.mostCurrent == null ? null : main.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (act_tip.previousOne != null) {
+				__a = act_tip.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(act_tip.mostCurrent == null ? null : act_tip.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (login.previousOne != null) {
+				__a = login.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(login.mostCurrent == null ? null : login.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (verify.previousOne != null) {
+				__a = verify.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(verify.mostCurrent == null ? null : verify.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (home.previousOne != null) {
+				__a = home.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(home.mostCurrent == null ? null : home.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+BA.applicationContext.stopService(new android.content.Intent(BA.applicationContext, starter.class));
+ {
+            Activity __a = null;
+            if (page.previousOne != null) {
+				__a = page.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(page.mostCurrent == null ? null : page.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (finger.previousOne != null) {
+				__a = finger.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(finger.mostCurrent == null ? null : finger.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+}
 public anywheresoftware.b4a.keywords.Common __c = null;
 public static String _txtnewstitle = "";
 public static String _picnew = "";
@@ -342,18 +461,10 @@ public b4a.example.c _c = null;
 public b4a.example.starter _starter = null;
 public b4a.example.page _page = null;
 public b4a.example.finger _finger = null;
-
-public static boolean isAnyActivityVisible() {
-    boolean vis = false;
-vis = vis | (main.mostCurrent != null);
-vis = vis | (act_tip.mostCurrent != null);
-vis = vis | (login.mostCurrent != null);
-vis = vis | (verify.mostCurrent != null);
-vis = vis | (home.mostCurrent != null);
-vis = vis | (page.mostCurrent != null);
-vis = vis | (finger.mostCurrent != null);
-return vis;}
 public static void  _activity_create(boolean _firsttime) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
+	 {Debug.delegate(mostCurrent.activityBA, "activity_create", new Object[] {_firsttime}); return;}
 ResumableSub_Activity_Create rsub = new ResumableSub_Activity_Create(null,_firsttime);
 rsub.resume(processBA, null);
 }
@@ -371,6 +482,7 @@ ir.hitexroid.lottie.Hitex_LottieAnimationView _lav = null;
 
 @Override
 public void resume(BA ba, Object[] result) throws Exception{
+RDebugUtils.currentModule="main";
 
     while (true) {
         switch (state) {
@@ -380,15 +492,17 @@ return;
 case 0:
 //C
 this.state = 1;
- //BA.debugLineNum = 33;BA.debugLine="Activity.Background= C.Gradient(0xff54A3EC,0xff54";
-parent.mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(parent.mostCurrent._c._gradient(mostCurrent.activityBA,(int) (0xff54a3ec),(int) (0xff5433b0),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
- //BA.debugLineNum = 35;BA.debugLine="If C.getDeviceLanguage=\"fa\" Then";
+RDebugUtils.currentLine=131075;
+ //BA.debugLineNum = 131075;BA.debugLine="Activity.Background= C.Gradient(0xff54A3EC,0xff54";
+parent.mostCurrent._activity.setBackground((android.graphics.drawable.Drawable)(parent.mostCurrent._c._gradient /*anywheresoftware.b4a.objects.drawable.GradientDrawable*/ (mostCurrent.activityBA,(int) (0xff54a3ec),(int) (0xff5433b0),(int) (0),anywheresoftware.b4a.keywords.Common.True).getObject()));
+RDebugUtils.currentLine=131077;
+ //BA.debugLineNum = 131077;BA.debugLine="If C.getDeviceLanguage=\"fa\" Then";
 if (true) break;
 
 case 1:
 //if
 this.state = 4;
-if ((parent.mostCurrent._c._getdevicelanguage(mostCurrent.activityBA)).equals("fa")) { 
+if ((parent.mostCurrent._c._getdevicelanguage /*String*/ (mostCurrent.activityBA)).equals("fa")) { 
 this.state = 3;
 }if (true) break;
 
@@ -401,63 +515,86 @@ case 4:
 //C
 this.state = -1;
 ;
- //BA.debugLineNum = 38;BA.debugLine="Dim img As ImageView";
+RDebugUtils.currentLine=131080;
+ //BA.debugLineNum = 131080;BA.debugLine="Dim img As ImageView";
 _img = new anywheresoftware.b4a.objects.ImageViewWrapper();
- //BA.debugLineNum = 39;BA.debugLine="img.Initialize(\"\")";
+RDebugUtils.currentLine=131081;
+ //BA.debugLineNum = 131081;BA.debugLine="img.Initialize(\"\")";
 _img.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 40;BA.debugLine="Activity.AddView(img,40%x,50%y-30%x,20%x,20%x)";
+RDebugUtils.currentLine=131082;
+ //BA.debugLineNum = 131082;BA.debugLine="Activity.AddView(img,40%x,50%y-30%x,20%x,20%x)";
 parent.mostCurrent._activity.AddView((android.view.View)(_img.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (40),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (30),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 41;BA.debugLine="img.Gravity=Gravity.FILL";
+RDebugUtils.currentLine=131083;
+ //BA.debugLineNum = 131083;BA.debugLine="img.Gravity=Gravity.FILL";
 _img.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.FILL);
- //BA.debugLineNum = 42;BA.debugLine="img.Bitmap=Application.Icon";
+RDebugUtils.currentLine=131084;
+ //BA.debugLineNum = 131084;BA.debugLine="img.Bitmap=Application.Icon";
 _img.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Application.getIcon().getObject()));
- //BA.debugLineNum = 43;BA.debugLine="Dim lbl As Label";
+RDebugUtils.currentLine=131085;
+ //BA.debugLineNum = 131085;BA.debugLine="Dim lbl As Label";
 _lbl = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 44;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-5%x,-1,10%x,\"ا";
-parent.mostCurrent._c._setlblset(mostCurrent.activityBA,_lbl,"",parent.mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA)),(int) (-1),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),"اپلیکیشن جامع جیبرس",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,parent.mostCurrent._c._irs,(int) (20),anywheresoftware.b4a.keywords.Common.Colors.White);
- //BA.debugLineNum = 46;BA.debugLine="Dim lbl As Label";
+RDebugUtils.currentLine=131086;
+ //BA.debugLineNum = 131086;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y-5%x,-1,10%x,\"ا";
+parent.mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,_lbl,"",parent.mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA)),(int) (-1),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),"اپلیکیشن جامع جیبرس",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,parent.mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (20),anywheresoftware.b4a.keywords.Common.Colors.White);
+RDebugUtils.currentLine=131088;
+ //BA.debugLineNum = 131088;BA.debugLine="Dim lbl As Label";
 _lbl = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 47;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y+5%x,-1,10%x,\"م";
-parent.mostCurrent._c._setlblset(mostCurrent.activityBA,_lbl,"",parent.mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA)),(int) (-1),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),"مراقب همراه جیب شما",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,parent.mostCurrent._c._irs,(int) (15),(int) (0xacffffff));
- //BA.debugLineNum = 49;BA.debugLine="Dim pnl As Panel";
+RDebugUtils.currentLine=131089;
+ //BA.debugLineNum = 131089;BA.debugLine="C.setlblset(lbl,\"\",Activity,0,50%y+5%x,-1,10%x,\"م";
+parent.mostCurrent._c._setlblset /*String*/ (mostCurrent.activityBA,_lbl,"",parent.mostCurrent._activity,(int) (0),(int) (anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (50),mostCurrent.activityBA)+anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA)),(int) (-1),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),"مراقب همراه جیب شما",anywheresoftware.b4a.keywords.Common.Gravity.CENTER,parent.mostCurrent._c._irs /*anywheresoftware.b4a.keywords.constants.TypefaceWrapper*/ ,(int) (15),(int) (0xacffffff));
+RDebugUtils.currentLine=131091;
+ //BA.debugLineNum = 131091;BA.debugLine="Dim pnl As Panel";
 _pnl = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 50;BA.debugLine="c.PnlCreate(pnl,\"\",Activity,0,0,-1,-1)";
-parent.mostCurrent._c._pnlcreate(mostCurrent.activityBA,_pnl,"",parent.mostCurrent._activity,(int) (0),(int) (0),(int) (-1),(int) (-1));
- //BA.debugLineNum = 51;BA.debugLine="Dim lav As Hitex_LottieAnimationView";
+RDebugUtils.currentLine=131092;
+ //BA.debugLineNum = 131092;BA.debugLine="c.PnlCreate(pnl,\"\",Activity,0,0,-1,-1)";
+parent.mostCurrent._c._pnlcreate /*String*/ (mostCurrent.activityBA,_pnl,"",parent.mostCurrent._activity,(int) (0),(int) (0),(int) (-1),(int) (-1));
+RDebugUtils.currentLine=131093;
+ //BA.debugLineNum = 131093;BA.debugLine="Dim lav As Hitex_LottieAnimationView";
 _lav = new ir.hitexroid.lottie.Hitex_LottieAnimationView();
- //BA.debugLineNum = 52;BA.debugLine="lav.Initialize(\"LAV\")";
+RDebugUtils.currentLine=131094;
+ //BA.debugLineNum = 131094;BA.debugLine="lav.Initialize(\"LAV\")";
 _lav.Initialize(mostCurrent.activityBA,"LAV");
- //BA.debugLineNum = 53;BA.debugLine="pnl.AddView(lav,0,70%y,-1,30%x)";
+RDebugUtils.currentLine=131095;
+ //BA.debugLineNum = 131095;BA.debugLine="pnl.AddView(lav,0,70%y,-1,30%x)";
 _pnl.AddView((android.view.View)(_lav.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (70),mostCurrent.activityBA),(int) (-1),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (30),mostCurrent.activityBA));
- //BA.debugLineNum = 54;BA.debugLine="lav.SetAnimation(File.DirAssets,\"netcheck.json\")";
+RDebugUtils.currentLine=131096;
+ //BA.debugLineNum = 131096;BA.debugLine="lav.SetAnimation(File.DirAssets,\"netcheck.json\")";
 _lav.SetAnimation(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"netcheck.json");
- //BA.debugLineNum = 55;BA.debugLine="lav.SetLoop(True) 'repeat";
+RDebugUtils.currentLine=131097;
+ //BA.debugLineNum = 131097;BA.debugLine="lav.SetLoop(True) 'repeat";
 _lav.SetLoop(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 56;BA.debugLine="lav.PlayAnimation";
+RDebugUtils.currentLine=131098;
+ //BA.debugLineNum = 131098;BA.debugLine="lav.PlayAnimation";
 _lav.PlayAnimation();
- //BA.debugLineNum = 57;BA.debugLine="lav.Speed=.7";
+RDebugUtils.currentLine=131099;
+ //BA.debugLineNum = 131099;BA.debugLine="lav.Speed=.7";
 _lav.setSpeed((float) (.7));
- //BA.debugLineNum = 59;BA.debugLine="Sleep(1000)";
-anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,this,(int) (1000));
+RDebugUtils.currentLine=131101;
+ //BA.debugLineNum = 131101;BA.debugLine="Sleep(1000)";
+anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "main", "activity_create"),(int) (1000));
 this.state = 5;
 return;
 case 5:
 //C
 this.state = -1;
 ;
- //BA.debugLineNum = 63;BA.debugLine="pnl.SetVisibleAnimated(500,False)";
+RDebugUtils.currentLine=131105;
+ //BA.debugLineNum = 131105;BA.debugLine="pnl.SetVisibleAnimated(500,False)";
 _pnl.SetVisibleAnimated((int) (500),anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 64;BA.debugLine="Sleep(500)";
-anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,this,(int) (500));
+RDebugUtils.currentLine=131106;
+ //BA.debugLineNum = 131106;BA.debugLine="Sleep(500)";
+anywheresoftware.b4a.keywords.Common.Sleep(mostCurrent.activityBA,new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "main", "activity_create"),(int) (500));
 this.state = 6;
 return;
 case 6:
 //C
 this.state = -1;
 ;
- //BA.debugLineNum = 65;BA.debugLine="pnlnonet=C.NoNet(Activity,False)";
-parent.mostCurrent._pnlnonet = parent.mostCurrent._c._nonet(mostCurrent.activityBA,parent.mostCurrent._activity,anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 69;BA.debugLine="End Sub";
+RDebugUtils.currentLine=131111;
+ //BA.debugLineNum = 131111;BA.debugLine="StartActivity(act_tip)";
+anywheresoftware.b4a.keywords.Common.StartActivity(processBA,(Object)(parent.mostCurrent._act_tip.getObject()));
+RDebugUtils.currentLine=131112;
+ //BA.debugLineNum = 131112;BA.debugLine="End Sub";
 if (true) break;
 
             }
@@ -465,75 +602,65 @@ if (true) break;
     }
 }
 public static boolean  _activity_keypress(int _keycode) throws Exception{
- //BA.debugLineNum = 82;BA.debugLine="Sub Activity_KeyPress (KeyCode As Int) As Boolean";
- //BA.debugLineNum = 83;BA.debugLine="If C.IsNoNetShow And c.IsNoNetPrimery=False Then";
-if (mostCurrent._c._isnonetshow && mostCurrent._c._isnonetprimery==anywheresoftware.b4a.keywords.Common.False) { 
- //BA.debugLineNum = 84;BA.debugLine="C.NoNetClose(pnlnonet)";
-mostCurrent._c._nonetclose(mostCurrent.activityBA,mostCurrent._pnlnonet);
- //BA.debugLineNum = 85;BA.debugLine="Return True";
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_keypress", false))
+	 {return ((Boolean) Debug.delegate(mostCurrent.activityBA, "activity_keypress", new Object[] {_keycode}));}
+RDebugUtils.currentLine=7798784;
+ //BA.debugLineNum = 7798784;BA.debugLine="Sub Activity_KeyPress (KeyCode As Int) As Boolean";
+RDebugUtils.currentLine=7798785;
+ //BA.debugLineNum = 7798785;BA.debugLine="If C.IsNoNetShow And c.IsNoNetPrimery=False Then";
+if (mostCurrent._c._isnonetshow /*boolean*/  && mostCurrent._c._isnonetprimery /*boolean*/ ==anywheresoftware.b4a.keywords.Common.False) { 
+RDebugUtils.currentLine=7798786;
+ //BA.debugLineNum = 7798786;BA.debugLine="C.NoNetClose(pnlnonet)";
+mostCurrent._c._nonetclose /*String*/ (mostCurrent.activityBA,mostCurrent._pnlnonet);
+RDebugUtils.currentLine=7798787;
+ //BA.debugLineNum = 7798787;BA.debugLine="Return True";
 if (true) return anywheresoftware.b4a.keywords.Common.True;
- }else if(mostCurrent._c._isnonetshow && mostCurrent._c._isnonetprimery==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 87;BA.debugLine="Return True";
+ }else 
+{RDebugUtils.currentLine=7798788;
+ //BA.debugLineNum = 7798788;BA.debugLine="Else if C.IsNoNetShow And c.IsNoNetPrimery=True T";
+if (mostCurrent._c._isnonetshow /*boolean*/  && mostCurrent._c._isnonetprimery /*boolean*/ ==anywheresoftware.b4a.keywords.Common.True) { 
+RDebugUtils.currentLine=7798789;
+ //BA.debugLineNum = 7798789;BA.debugLine="Return True";
 if (true) return anywheresoftware.b4a.keywords.Common.True;
- };
- //BA.debugLineNum = 92;BA.debugLine="End Sub";
+ }}
+;
+RDebugUtils.currentLine=7798794;
+ //BA.debugLineNum = 7798794;BA.debugLine="End Sub";
 return false;
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 77;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 79;BA.debugLine="End Sub";
+RDebugUtils.currentModule="main";
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 73;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 75;BA.debugLine="End Sub";
-return "";
-}
-public static String  _globals() throws Exception{
- //BA.debugLineNum = 24;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 27;BA.debugLine="Dim pnlnonet As Panel";
-mostCurrent._pnlnonet = new anywheresoftware.b4a.objects.PanelWrapper();
- //BA.debugLineNum = 28;BA.debugLine="End Sub";
-return "";
-}
-
-public static void initializeProcessGlobals() {
-    
-    if (main.processGlobalsRun == false) {
-	    main.processGlobalsRun = true;
-		try {
-		        main._process_globals();
-act_tip._process_globals();
-login._process_globals();
-verify._process_globals();
-home._process_globals();
-c._process_globals();
-starter._process_globals();
-page._process_globals();
-finger._process_globals();
-		
-        } catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-    }
-}public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 15;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 18;BA.debugLine="Dim txtnewstitle As String =\"تایتل تستی برای مطال";
-_txtnewstitle = "تایتل تستی برای مطالب";
- //BA.debugLineNum = 19;BA.debugLine="Dim picnew As String=\"http://havadari.iquizland.i";
-_picnew = "http://havadari.iquizland.ir/wp-content/uploads/2019/07/01419125.jpg";
- //BA.debugLineNum = 20;BA.debugLine="Dim newsid As String=\"6591\"";
-_newsid = "6591";
- //BA.debugLineNum = 21;BA.debugLine="Dim newsdate As String=\"19:03:33 22-04-1398\"";
-_newsdate = "19:03:33 22-04-1398";
- //BA.debugLineNum = 22;BA.debugLine="End Sub";
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=196609;
+ //BA.debugLineNum = 196609;BA.debugLine="StartActivity(Home)";
+anywheresoftware.b4a.keywords.Common.StartActivity(processBA,(Object)(mostCurrent._home.getObject()));
+RDebugUtils.currentLine=196610;
+ //BA.debugLineNum = 196610;BA.debugLine="End Sub";
 return "";
 }
 public static String  _retry_click() throws Exception{
- //BA.debugLineNum = 70;BA.debugLine="Sub retry_Click";
- //BA.debugLineNum = 71;BA.debugLine="Log(\"dd\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("26488065","dd",0);
- //BA.debugLineNum = 72;BA.debugLine="End Sub";
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "retry_click", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "retry_click", null));}
+RDebugUtils.currentLine=7733248;
+ //BA.debugLineNum = 7733248;BA.debugLine="Sub retry_Click";
+RDebugUtils.currentLine=7733249;
+ //BA.debugLineNum = 7733249;BA.debugLine="Log(\"dd\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("37733249","dd",0);
+RDebugUtils.currentLine=7733250;
+ //BA.debugLineNum = 7733250;BA.debugLine="End Sub";
 return "";
 }
 }

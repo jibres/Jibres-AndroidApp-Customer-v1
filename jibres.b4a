@@ -22,7 +22,7 @@ IconFile=
 Library1=core
 Library10=reflection
 Library11=hitex_glide
-Library12=arretrofit
+Library12=amir_retrofit
 Library13=heightlabel
 Library14=xmllayoutbuilder
 Library15=richstring
@@ -34,7 +34,8 @@ Library2=javaobject
 Library20=teameightjustify
 Library21=teameightjustifysupport
 Library22=arialib
-Library23=okhttp
+Library23=pagerbullet
+Library24=cardview
 Library3=materialdialogs
 Library4=phone
 Library5=hitex_lottie
@@ -44,6 +45,7 @@ Library8=cmlibrariessupport
 Library9=ime
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~	SetApplicationAttribute(android:supportsRtl, "true")~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~AddPermission(android.permission.USE_FINGERPRINT)~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~~\n~		 <style name="mt" parent="Theme.AppCompat.Light.NoActionBar">~\n~        <item name="android:statusBarColor">@android:color/transparent</item>~\n~		 <item name="windowNoTitle">true</item>~\n~	    <item name="windowActionBar">false</item>~\n~        <item name="android:windowTranslucentStatus">true</item>~\n~        <item name="android:windowDrawsSystemBarBackgrounds">true</item>~\n~		<item name="android:textColorSecondary">#FFFFFF</item>~\n~		<item name="colorAccent">#A3A3A3</item>~\n~		<item name="android:navigationBarColor">#5433B0</item>~\n~		</style>~\n~</resources>~\n~)~\n~SetApplicationAttribute(android:theme, "@style/mt")
 Module1=act_tip
+Module10=creatLV
 Module2=login
 Module3=verify
 Module4=Home
@@ -53,9 +55,9 @@ Module7=page
 Module8=finger
 Module9=FingerprintManager
 NumberOfFiles=9
-NumberOfLibraries=23
-NumberOfModules=9
-Version=9
+NumberOfLibraries=24
+NumberOfModules=10
+Version=9.3
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: Jibres
@@ -71,6 +73,7 @@ Version=9
 	#IncludeTitle: True
 #End Region
 #AdditionalRes: ..\Icons
+#AdditionalRes: ..\res_bulet
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
@@ -121,17 +124,17 @@ Sub Activity_Create(FirstTime As Boolean)
 	
 	pnl.SetVisibleAnimated(500,False)
 	Sleep(500)
-	pnlnonet=C.NoNet(Activity,False)
+	'pnlnonet=C.NoNet(Activity,False)
 	
 ''	
 
-Activity(act_tip)               
+StartActivity(act_tip)               
 End Sub
 Sub retry_Click
 	Log("dd")
 End Sub
 Sub Activity_Resume
-'StartActivity(finger)  
+StartActivity(Home)  
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)

@@ -9,14 +9,30 @@ Version=9
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
-Dim irs As Typeface = Typeface.LoadFromAssets("iransansmobile.ttf")
-	Dim irsb As Typeface = Typeface.CreateNew(irs, Typeface.STYLE_BOLD)
+	Dim irs As Typeface = Typeface.LoadFromAssets("iransansmobile(fanum)_light.ttf")
+	Dim irsb As Typeface = Typeface.LoadFromAssets("iransansmobile(fanum)_medium.ttf")
 	Dim rcenter As Int = Bit.Or(Gravity.CENTER,Gravity.RIGHT)
 	Dim lcenter As Int = Bit.Or(Gravity.CENTER,Gravity.LEFT)
 	Dim tcenter As Int = Bit.Or(Gravity.CENTER,Gravity.TOP)
 	Dim IsNoNetShow As Boolean = False
 	Dim IsNoNetPrimery As Boolean = False
 	
+End Sub
+Sub between(t1 As Long,t2 As Long) As Long
+	Dim t As Long=Abs(t1-t2)
+	Dim days, hours, minutes As Int
+	days = Floor(t / DateTime.TicksPerDay)
+	hours = Floor((t Mod DateTime.TicksPerDay) / DateTime.TicksPerHour)
+	minutes = Floor((t Mod DateTime.TicksPerHour) / DateTime.TicksPerMinute)
+	Return t
+	'Return days&"روز و "&hours&"ساعت و "&minutes&"دقیقه "
+End Sub
+Public Sub GetTextWidth(Label As Label) As Float
+	Private cvs As Canvas
+	Dim bmp As Bitmap
+	bmp.InitializeMutable(1,1) 'ignore
+	cvs.Initialize2(bmp)
+	Return cvs.MeasureStringWidth(Label.Text, Label.Typeface, Label.TextSize)
 End Sub
 Sub setripple(view As View,bor As Boolean)
 	Dim apc As AppCompat
